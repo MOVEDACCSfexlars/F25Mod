@@ -11,13 +11,13 @@ import net.minecraft.item.ItemFood;
 public class ItemFoodBase extends ItemFood implements IHasModel
 {
 
-    public ItemFoodBase(String name, int foodAmount, float saturation, boolean isWolfFood)
+    public ItemFoodBase(String name, int foodAmount, float saturation, boolean isWolfFood, CreativeTabs creativeTab)
     {
         super(foodAmount, saturation, isWolfFood);
 
         setUnlocalizedName(name);
         setRegistryName(name);
-        setCreativeTab(Main.F25KEYTAB);
+        setCreativeTab(creativeTab);
 
         ItemInit.ITEMS.add(this);
     }

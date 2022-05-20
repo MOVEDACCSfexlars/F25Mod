@@ -13,8 +13,9 @@ item.food_fudge_stripes.name=Fudge Stripes
 
 # Blocks
 tile.f25_block.name=F25 Block
-tile.fruit_crate.name=Fruit Crate
+tile.f25_block_harmless.name=F25 Block (Harmless)
 tile.missing_block.name=Missing Texture Block
+tile.fruit_crate.name=Fruit Crate
 
 # Subtitles
 blocks.f25_placed="I'm Gonna Hit the F25 Key"
