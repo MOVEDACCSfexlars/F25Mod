@@ -1,3 +1,6 @@
 {
-  "parent": "f25:block/food_orange"
+  "parent": "item/generated",
+  "textures": {
+    "layer0": "f25:items/food_orange"
+  }
 }

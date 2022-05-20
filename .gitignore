@@ -5,7 +5,7 @@ bin
 .metadata
 .classpath
 .project
-.saves
+saves/
 
 # idea
 out
