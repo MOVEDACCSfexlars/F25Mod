@@ -4,6 +4,8 @@ import fexlar.mod.Main;
 import fexlar.mod.init.BlockInit;
 import fexlar.mod.init.ItemInit;
 import fexlar.mod.util.interfaces.IHasModel;
+import fexlar.mod.util.packets.spawnItem;
+import fexlar.mod.util.packets.spawnItemSender;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -21,6 +23,9 @@ import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import net.minecraftforge.fml.relauncher.Side;
+import net.minecraftforge.fml.relauncher.SideOnly;
+import org.lwjgl.Sys;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -46,9 +51,8 @@ public class FruitCrate extends Block implements IHasModel
     public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
         worldIn.playSound(playerIn, pos, SoundEvents.ENTITY_GENERIC_EXPLODE, SoundCategory.BLOCKS, 0.5F, 1F);
         worldIn.spawnParticle(EnumParticleTypes.EXPLOSION_HUGE, pos.getX(), pos.getY(), pos.getZ(), 0.0D, 0.0D, 0.0D);
-        if (!worldIn.isRemote)
-        {
-            List<ItemStack> fruits = new ArrayList<>();
+
+        List<ItemStack> fruits = new ArrayList<>();
 
             // This probably isn't the best way to do this but whatever
             fruits.add(new ItemStack(Items.APPLE));
@@ -59,42 +63,58 @@ public class FruitCrate extends Block implements IHasModel
             fruits.add(new ItemStack(ItemInit.FOOD_LEMON));
             fruits.add(new ItemStack(ItemInit.FOOD_ORANGE));
 
-            // Runs a for loop that spawns an item in a random location and random velocity.
-            for (int x = 0; x < 5; x++)
+        // Setting this too high will crash your game/server
+        for (int x = 0; x < 2; x++)
+        {
+            for (int i = 0; i < fruits.size(); i++)
             {
-                for (int i = 0; i < fruits.size(); i++)
-                {
-                    Random rand = new Random();
-                    float rx = rand.nextFloat() * 0.75F + 0.1F;
-                    float ry = rand.nextFloat() * 0.75F + 0.1F;
-                    float rz = rand.nextFloat() * 0.75F + 0.1F;
-
-                    worldIn.setBlockToAir(pos);
-                    EntityItem dropItem = new EntityItem(worldIn, pos.getX() + rx, pos.getY() + ry, pos.getZ() + rz, fruits.get(i).copy());
-                    float factor = 0.15F;
-                    dropItem.setVelocity(rand.nextGaussian() * factor,
-                            rand.nextGaussian() * factor + 0.45F,
-                            rand.nextGaussian() * factor);
-                    worldIn.spawnEntity(dropItem);
-                }
+                spawnItemSender.INSTANCE.sendToServer(new spawnItem(fruits.get(i), pos.getX(), pos.getY(), pos.getZ()));
+                spawnItemSender.init();
             }
-
-            // Only one carrot lol
-            Random rand = new Random();
-            float rx = rand.nextFloat() * 0.75F + 0.1F;
-            float ry = rand.nextFloat() * 0.75F + 0.1F;
-            float rz = rand.nextFloat() * 0.75F + 0.1F;
-
-            worldIn.setBlockToAir(pos);
-            EntityItem dropItem = new EntityItem(worldIn, pos.getX() + rx, pos.getY() + ry, pos.getZ() + rz, new ItemStack(ItemInit.FOOD_FUDGE_STRIPES).copy());
-            float factor = 0.15F;
-            dropItem.setVelocity(rand.nextGaussian() * factor,
-                    rand.nextGaussian() * factor + 0.45F,
-                    rand.nextGaussian() * factor);
-            worldIn.spawnEntity(dropItem);
-            return true;
         }
-        return false;
+        worldIn.setBlockToAir(new BlockPos(pos));
+        // Throw in an extra something cause why not
+//        spawnItemSender.INSTANCE.sendToServer(new spawnItem(new ItemStack(ItemInit.FOOD_FUDGE_STRIPES), pos.getX(), pos.getY(), pos.getZ()));
+
+//        if(worldIn.isRemote)
+//        {
+//
+//        }
+//        else
+//        {
+//            for (int x = 0; x < 5; x++)
+//            {
+//                for (int i = 0; i < fruits.size(); i++)
+//                {
+//                    Random rand = new Random();
+//                    float rx = rand.nextFloat() * 0.75F + 0.1F;
+//                    float ry = rand.nextFloat() * 0.75F + 0.1F;
+//                    float rz = rand.nextFloat() * 0.75F + 0.1F;
+//
+//                    worldIn.setBlockToAir(pos);
+//                    EntityItem dropItem = new EntityItem(worldIn, pos.getX() + rx, pos.getY() + ry, pos.getZ() + rz, fruits.get(i).copy());
+//                    float factor = 0.15F;
+//                    dropItem.setVelocity(rand.nextGaussian() * factor,
+//                            rand.nextGaussian() * factor + 0.45F,
+//                            rand.nextGaussian() * factor);
+//                    worldIn.spawnEntity(dropItem);
+//                }
+//                // Throw in an extra something cause why not
+//                Random rand = new Random();
+//                float rx = rand.nextFloat() * 0.75F + 0.1F;
+//                float ry = rand.nextFloat() * 0.75F + 0.1F;
+//                float rz = rand.nextFloat() * 0.75F + 0.1F;
+//
+//                worldIn.setBlockToAir(pos);
+//                EntityItem dropItem = new EntityItem(worldIn, pos.getX() + rx, pos.getY() + ry, pos.getZ() + rz, new ItemStack(ItemInit.FOOD_FUDGE_STRIPES).copy());
+//                float factor = 0.15F;
+//                dropItem.setVelocity(rand.nextGaussian() * factor,
+//                        rand.nextGaussian() * factor + 0.45F,
+//                        rand.nextGaussian() * factor);
+//                worldIn.spawnEntity(dropItem);
+//                return true;
+//        }
+        return true;
     }
 
     @Override
