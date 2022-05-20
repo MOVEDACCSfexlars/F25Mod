@@ -1,3 +1,7 @@
+# F25 Mod
+A mod I made for fun just to get into the waters with minecraft forge and to make a mod for some friends.
+This uses a very old version of 1.12.2 Forge because I was having issues with the latest version.
+
 -------------------------------------------
 Source installation information for modders
 -------------------------------------------
