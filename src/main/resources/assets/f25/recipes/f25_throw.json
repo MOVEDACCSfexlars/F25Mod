@@ -1,0 +1,32 @@
+{
+  "type": "minecraft:crafting_shaped",
+
+  "pattern":
+  [
+    "KAS",
+    "  S",
+    "  S"
+  ],
+
+  "key":
+  {
+    "K":
+    {
+      "item": "f25:f25_key"
+    },
+    "A":
+    {
+      "item": "minecraft:arrow"
+    },
+    "S":
+    {
+      "item": "minecraft:stick"
+    }
+  },
+
+  "result":
+  {
+    "item": "f25:f25_throw",
+    "count": 1
+  }
+}

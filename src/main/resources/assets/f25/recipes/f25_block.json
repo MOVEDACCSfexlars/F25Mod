@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+
+  "pattern":
+  [
+    "KKK",
+    "KKK",
+    "KKK"
+  ],
+
+  "key":
+  {
+    "K":
+    {
+      "item": "f25:f25_key"
+    }
+  },
+
+  "result":
+  {
+    "item": "f25:f25_block",
+    "count": 9
+  }
+}

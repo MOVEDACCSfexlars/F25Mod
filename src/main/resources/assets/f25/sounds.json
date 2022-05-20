@@ -1,0 +1,19 @@
+{
+  "blocks.f25_activate":
+  {
+    "category": "blocks",
+    "subtitle": "blocks.f25_activate",
+    "sounds": [{"name":  "f25:blocks/f25_activate", "stream":  true}]
+  },
+  "blocks.f25_placed":
+  {
+    "category": "blocks",
+    "subtitle": "blocks.f25_placed",
+    "sounds": [{"name":  "f25:blocks/f25_placed", "stream":  true}]
+  },
+  "records.f25_record":
+  {
+    "category": "record",
+    "sounds": [{"name":  "f25:records/f25_record", "stream":  true}]
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "f25:blocks/fruit_crate"
+  }
+}

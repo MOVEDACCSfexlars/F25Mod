@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+
+  "pattern":
+  [
+    "WWW",
+    "WAW",
+    "WWW"
+  ],
+
+  "key":
+  {
+    "W":
+    {
+      "item": "minecraft:planks",
+      "data": 0
+    },
+    "A":
+    {
+      "item": "minecraft:apple"
+    }
+  },
+
+  "result":
+  {
+    "item": "f25:fruit_crate",
+    "count": 1
+  }
+}

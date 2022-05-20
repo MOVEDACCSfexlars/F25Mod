@@ -1,0 +1,16 @@
+[
+{
+  "modid": "f25",
+  "name": "F25 Key Mod",
+  "description": "A ton of random crap I made as a joke between friends",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["fexlar"],
+  "credits": "Myself :D",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]

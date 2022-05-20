@@ -1,0 +1,24 @@
+# Regular Items
+item.f25_key.name=F25 Key
+item.f25_throw.name=A Fucking Gun
+
+# Food Items
+item.food_banana.name=Banana
+item.food_orange.name=Orange
+item.food_kiwi.name=Kiwi
+item.food_pear.name=Pear
+item.food_lemon.name=Lemon
+
+item.food_fudge_stripes.name=Fudge Stripes
+
+# Blocks
+tile.f25_block.name=F25 Block
+tile.fruit_crate.name=Fruit Crate
+tile.missing_block.name=Missing Texture Block
+
+# Subtitles
+blocks.f25_placed="I'm Gonna Hit the F25 Key"
+blocks.f25_activate=*Fart Sound*
+
+# Creative Tabs
+itemGroup.f25keytab=F25 Mod
